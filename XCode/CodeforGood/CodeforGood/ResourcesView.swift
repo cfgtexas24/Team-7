@@ -25,83 +25,40 @@ struct WebView: UIViewRepresentable {
 }
 
 // ResourcesView struct where you display the videos
+// ResourcesView struct where you display the videos and helpful websites
 struct ResourcesView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Self Improvement Videos")
-                    .font(.title)
-                    .padding(.bottom, 10)
-                
-                // Credit vs Debit Video
-                VStack {
-                    Text("Credit vs Debit")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/sm0FzHMInig")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                
-                // Budgeting Routine Video
-                VStack {
-                    Text("Budgeting Routine")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/IIKr2915l2g")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                
-                // Goal Setting Video
-                VStack {
-                    Text("Goal Setting")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/XpKvs-apvOs")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                
-                // New Videos
-                VStack {
-                    Text("How to Stop Procrastinating")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/QS5-Z-oP-Hw")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                
-                VStack {
-                    Text("Inside the Mind of a Master Procrastinator")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/arj7oStGLkU")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                
-                VStack {
-                    Text("The Science of Productivity")
-                        .font(.headline)
-                    WebView(urlString: "https://www.youtube.com/embed/wljRiAofFJ8")
-                        .frame(height: 200)
-                        .cornerRadius(10)
-                }
-                // Helpful Websites Section
                 Text("Helpful Websites")
                     .font(.title)
                     .padding(.top, 20)
-                
-                // Website Cards
+
+                // Website Cards for helpful resources
                 VStack {
+                    WebsiteCardView(title: "Dallas County Housing Assistance", description: "Housing assistance and support in Dallas County.", url: "https://www.dallascounty.org/cares-act/housing-assistance-en.php")
+                    WebsiteCardView(title: "Emergency Housing Resources", description: "Find emergency housing resources and services.", url: "https://dhantx.com/applicants/emergency-housing-resources/")
                     WebsiteCardView(title: "Texas Workforce Commission", description: "Employment services and benefits in Texas.", url: "https://www.twc.texas.gov/")
                     WebsiteCardView(title: "Your Texas Benefits", description: "Apply for state benefits and services.", url: "https://yourtexasbenefits.com//Learn/Home")
                     WebsiteCardView(title: "Feeding America", description: "Find a local food bank near you.", url: "https://www.feedingamerica.org/find-your-local-foodbank")
+
+                    // Emergency Shelters
+                    WebsiteCardView(title: "Austin Street Center", description: "Emergency shelter for the homeless.", url: "https://www.austinstreet.org")
+                    WebsiteCardView(title: "The Bridge", description: "Homeless recovery center in Dallas.", url: "https://www.bridgehrc.org")
+                    WebsiteCardView(title: "Dallas Life Foundation", description: "Christian-based homeless recovery center.", url: "https://www.dallaslife.org")
+                    WebsiteCardView(title: "Housing Crisis Center", description: "Provides housing assistance and resources.", url: "https://www.hccdallas.org")
+                    WebsiteCardView(title: "Interfaith Dallas", description: "Offers emergency housing and support.", url: "https://www.interfaithdallas.org")
+                    WebsiteCardView(title: "The Red Cross", description: "Dallas Chapter of the Red Cross.", url: "https://www.redcross.org")
+                    WebsiteCardView(title: "The Samaritan Inn", description: "Homeless shelter providing housing and care.", url: "https://www.saminn.org")
+                    WebsiteCardView(title: "Union Gospel Mission", description: "Shelter and support for the homeless.", url: "https://www.ugmdallas.org")
                 }
-            }
-                
+
                 Spacer()
             }
             .padding()
         }
     }
+}
 
 // WebsiteCardView struct to display website links as cards
 struct WebsiteCardView: View {

@@ -252,47 +252,86 @@ struct FormView_Previews: PreviewProvider {
 
     extension FormView {
         private func sendEmergencyEmail() {
-            // SMTP configuration for Gmail
-            let smtp = SMTP(
-                hostname: "smtp.gmail.com", // SMTP server address
-                email: "your-email@gmail.com", // Your Gmail address
-                password: "your-app-password", // Use an App Password if you have 2FA enabled
-                port: 465, // Use 587 for TLS, or 465 for SSL
-                tlsMode: .requireSTARTTLS // Or .alwaysSTARTTLS depending on your preference
-            )
-            
-            // Create the sender and recipient
-            let from = Mail.User(name: "Your Name", email: "victorcadenamgmt@gmail.com")
-            let to = Mail.User(name: "Admin", email: "2109319000@txt.att.com")
-            
-            // Construct the email message using the information provided by the user
-            let emergencyMessage = """
-            Emergency Alert:
-            
-            Emergency Type: \(selectedEmergencyType)
-            Name: \(firstName) \(lastName)
-            Email: \(email)
-            Phone Number: \(phoneNumber)
-            Age: \(age), Gender: \(gender)
-            Address: \(address), \(city), \(state) \(zipCode)
-            Additional Info: \(additionalInfo)
-            """
-            
-            // Create the mail object with the constructed message
-            let mail = Mail(
-                from: from,
-                to: [to],
-                subject: "ALERT: Emergency",
-                text: emergencyMessage
-            )
-            
-            // Send the email
-            smtp.send(mail) { (error) in
-                if let error = error {
-                    print("Failed to send email: \(error)")
-                } else {
-                    print("Email sent successfully.")
+            // In your FormsView or a related class
+            func sendEmergencyEmail() {
+                // The URL for the SMS API endpoint
+                guard let url = URL(string: "http://52.91.214.247:3000/api/sms") else {
+                    print("Invalid URL")
+                    return
                 }
+
+                // Create a URLSession data task to send a GET request
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    // Handle errors
+                    if let error = error {
+                        print("Failed to send request: \(error.localizedDescription)")
+                        return
+                    }
+
+                    // Check for a valid HTTP response
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            // Successful response
+                            print("SMS request sent successfully.")
+                        } else {
+                            // Handle unexpected status codes
+                            print("Received HTTP status code: \(httpResponse.statusCode)")
+                        }
+                    }
+
+                    // Optionally, handle the response data
+                    if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                        print("Response data: \(responseString)")
+                    }
+                }
+
+                // Start the data task
+                task.resume()
             }
+
+            
+            
+//            // SMTP configuration for Gmail
+//            let smtp = SMTP(
+//                hostname: "smtp.gmail.com", // SMTP server address
+//                email: "logan.lieou@gmail.com", // Your Gmail address
+//                password: "htrw rjsq tnid cxlk", // Use an App Password if you have 2FA enabled
+//                port: 587, // Use 587 for TLS, or 465 for SSL
+//                tlsMode: .requireSTARTTLS // Or .alwaysSTARTTLS depending on your preference
+//            )
+//            
+//            // Create the sender and recipient
+//            let from = Mail.User(name: "Your Name", email: "logan.lieou@gmail.com")
+//            let to = Mail.User(name: "Admin", email: "5129939663@txt.att.com")
+//            
+//            // Construct the email message using the information provided by the user
+//            let emergencyMessage = """
+//            Emergency Alert:
+//            
+//            Emergency Type: \(selectedEmergencyType)
+//            Name: \(firstName) \(lastName)
+//            Email: \(email)
+//            Phone Number: \(phoneNumber)
+//            Age: \(age), Gender: \(gender)
+//            Address: \(address), \(city), \(state) \(zipCode)
+//            Additional Info: \(additionalInfo)
+//            """
+//            
+//            // Create the mail object with the constructed message
+//            let mail = Mail(
+//                from: from,
+//                to: [to],
+//                subject: "ALERT: Emergency",
+//                text: emergencyMessage
+//            )
+//            
+//            // Send the email
+//            smtp.send(mail) { (error) in
+//                if let error = error {
+//                    print("Failed to send email: \(error)")
+//                } else {
+//                    print("Email sent successfully.")
+//                }
+//            }
         }
     }
