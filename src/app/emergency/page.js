@@ -36,7 +36,7 @@ export default function Emergency() {
     state: "",
     city: "",
     zipCode: "",
-    additionalInfo: "", // Add this field
+    additionalInfo: "",
   });
 
   const handleOptionClick = (option) => {
