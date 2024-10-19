@@ -24,7 +24,7 @@ export default function Life() {
       title: "Goal Setting", 
       color: "from-purple-400 to-purple-600", 
       videoUrl: "https://www.youtube.com/watch?v=XpKvs-apvOs", // Replace with actual video URL
-      gameUrl: "https://scratch.mit.edu/projects/1083696854/embed"
+      gameUrl: "https://scratch.mit.edu/projects/1083717728/embed"
     },
   ]
 
