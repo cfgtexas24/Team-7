@@ -1,8 +1,16 @@
+/*
+ * Events.java
+ * 
+ * This file defines the table for the 
+ * Events entity. It correlates to the 
+ * PostgreSQL database
+ */
 package com.example.backend.entity;
 
 import java.time.LocalTime;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,11 +24,22 @@ public class Events {
     @GeneratedValue
     private Long id;
 
+    @Column(name = "title")
     private String title;
+    
+    @Column(name = "location")
     private String location;
+
+    @Column(name = "date")
     private Date date;
+
+    @Column(name ="description")
     private String desription;
+
+    @Column(name = "startTime")
     private LocalTime startTime;
+
+    @Column(name = "endTime")
     private LocalTime endTime;
 
     public Long getId(){
