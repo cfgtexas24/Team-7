@@ -26,14 +26,14 @@ public class Events {
 
     @Column(name = "title")
     private String title;
-    
+
     @Column(name = "location")
     private String location;
 
     @Column(name = "date")
     private Date date;
 
-    @Column(name ="description")
+    @Column(name = "description")
     private String desription;
 
     @Column(name = "startTime")
@@ -42,59 +42,81 @@ public class Events {
     @Column(name = "endTime")
     private LocalTime endTime;
 
-    public int getId(){
+    public Events(int id, String title, String location, Date date, String desription, LocalTime startTime, LocalTime endTime) {
+        this.id = id;
+        this.title = title;
+        this.location = location;
+        this.date = date;
+        this.desription = desription;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public Events(String title, String location, Date date, String desription, LocalTime startTime, LocalTime endTime) {
+        this.title = title;
+        this.location = location;
+        this.date = date;
+        this.desription = desription;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public Events(){
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getLocation(){
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location){
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Date getDate(){
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Date date){
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getDesription(){
+    public String getDesription() {
         return desription;
     }
 
-    public void setDesription(String desription){
+    public void setDesription(String desription) {
         this.desription = desription;
     }
 
-    public LocalTime getStartTime(){
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime){
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime(){
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime){
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
