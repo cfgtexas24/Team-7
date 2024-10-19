@@ -19,8 +19,8 @@ struct HomeView: View {
                         NavigationLink(destination: UserProfileView()) {
                             Image(systemName: "person.crop.circle")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 40, height: 40)
+                                .scaledToFill()
+                                .frame(width: 20, height: 20)
                                 .padding()
                                 .background(Color(hex: "#2E3097").opacity(0.2))
                                 .clipShape(Circle())
@@ -30,23 +30,34 @@ struct HomeView: View {
                             .foregroundColor(.primary)
                             .padding(.top, 5)
                     }
-                    .padding(.bottom, -8) // Adjust this value to move the button higher
-                    .padding(.trailing, 20) // Adjust this value for horizontal spacing
+                    .padding(.vertical, -16) // Adjust this value to move the button higher
+                    .padding(.horizontal, 30) // Adjust this value for horizontal spacing
                 }
                 
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                 
-                // Centered VStack for the other buttons
+                // Logo and Centered VStack for the other buttons
                 VStack(spacing: 50) {
-                    NavigationLink(destination: ResourcesView()) {
-                        HomeIconButton(iconName: "book.fill", label: "Resources")
+                    // Add the company logo
+                    Image("Storm_Center_of_Hope_and_Service_Logo_NoBackground")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 280, height: 80) // Adjust as needed
+                        .padding()
+                    
+                    // Other navigation buttons
+                    VStack(spacing: 30) {
+                        NavigationLink(destination: ResourcesView()) {
+                            HomeIconButton(iconName: "book.fill", label: "Resources", backgroundColor: Color(hex: "#2E3097"))
+                        }
+                        NavigationLink(destination: EventsView()) {
+                            HomeIconButton(iconName: "calendar.and.person", label: "Events", backgroundColor: Color(hex: "#D9C912"))
+                        }
+                        NavigationLink(destination: LifeLessonsView()) {
+                            HomeIconButton(iconName: "person.3.fill", label: "Life Lessons", backgroundColor: Color(hex: "#2E3097"))
+                        }
                     }
-                    NavigationLink(destination: EventsView()) {
-                        HomeIconButton(iconName: "calendar.and.person", label: "Events")
-                    }
-                    NavigationLink(destination: LifeLessonsView()) {
-                        HomeIconButton(iconName: "person.3.fill", label: "Life Lessons")
-                    }
+                    .padding(.top, 30)
                 }
                 .padding()
             }
@@ -57,7 +68,7 @@ struct HomeView: View {
 struct HomeIconButton: View {
     let iconName: String
     let label: String
-  //  let backgroundColor: Color // Add a color parameter for customization
+    let backgroundColor: Color // Add a color parameter for customization
     
     var body: some View {
         VStack {

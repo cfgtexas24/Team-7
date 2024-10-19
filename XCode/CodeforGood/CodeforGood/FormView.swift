@@ -197,23 +197,25 @@ struct FormView: View {
 
             Spacer()
 
-            // Show the "Next" button until the last question
-            if currentQuestionIndex < questions.count - 1 {
-                Button("Next") {
-                    currentQuestionIndex += 1
-                }
-                .padding()
-            } else {
-                Button("Submit") {
-                    handleSubmit()
-                }
-                .padding()
-            }
-        }
-        .padding()
-        .onAppear {
-            // Initialize the form
-            currentQuestionIndex = 0
+//            ***** Removed for Demo Simplicity *****
+//            // Show the "Next" button until the last question
+//            if currentQuestionIndex < questions.count - 1 {
+//                Button("Next") {
+//                    currentQuestionIndex += 1
+//                }
+//                .padding()
+//            } else {
+//                Button("Submit") {
+//                    handleSubmit()
+//                }
+//                .padding()
+//            }
+//        }
+//        .padding()
+//        .onAppear {
+//
+//            // Initialize the form
+//            currentQuestionIndex = 0
         }
         .fullScreenCover(isPresented: $isFormCompleted) {
             HomeView() // Navigate to HomeView once form is completed
@@ -288,50 +290,5 @@ struct FormView_Previews: PreviewProvider {
                 // Start the data task
                 task.resume()
             }
-
-            
-            
-//            // SMTP configuration for Gmail
-//            let smtp = SMTP(
-//                hostname: "smtp.gmail.com", // SMTP server address
-//                email: "logan.lieou@gmail.com", // Your Gmail address
-//                password: "htrw rjsq tnid cxlk", // Use an App Password if you have 2FA enabled
-//                port: 587, // Use 587 for TLS, or 465 for SSL
-//                tlsMode: .requireSTARTTLS // Or .alwaysSTARTTLS depending on your preference
-//            )
-//            
-//            // Create the sender and recipient
-//            let from = Mail.User(name: "Your Name", email: "logan.lieou@gmail.com")
-//            let to = Mail.User(name: "Admin", email: "5129939663@txt.att.com")
-//            
-//            // Construct the email message using the information provided by the user
-//            let emergencyMessage = """
-//            Emergency Alert:
-//            
-//            Emergency Type: \(selectedEmergencyType)
-//            Name: \(firstName) \(lastName)
-//            Email: \(email)
-//            Phone Number: \(phoneNumber)
-//            Age: \(age), Gender: \(gender)
-//            Address: \(address), \(city), \(state) \(zipCode)
-//            Additional Info: \(additionalInfo)
-//            """
-//            
-//            // Create the mail object with the constructed message
-//            let mail = Mail(
-//                from: from,
-//                to: [to],
-//                subject: "ALERT: Emergency",
-//                text: emergencyMessage
-//            )
-//            
-//            // Send the email
-//            smtp.send(mail) { (error) in
-//                if let error = error {
-//                    print("Failed to send email: \(error)")
-//                } else {
-//                    print("Email sent successfully.")
-//                }
-//            }
         }
     }
