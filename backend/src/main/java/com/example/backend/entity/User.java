@@ -32,18 +32,39 @@ public class User {
     private int phoneNumber;
     @Column(name = "gender")
     private String gender;
+    @Column(name = "isMentor")
+    private boolean isMentor;
+    @Column(name = "isMentee")
+    private boolean isMentee;
+    @Column(name = "isAdmin")
+    private boolean isAdmin;
 
     public User(){
     }
 
-    public User(String email, String gender, int id, String location, String name, int phoneNumber){
+    public User(int id, String email, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
+        this.id = id;
         this.email = email;
         this.gender = gender;
-        this.id = id;
         this.location = location;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.isMentor = isMentor;
+        this.isMentee = isMentee;
+        this.isAdmin = isAdmin;
     }
+
+    public User(String email, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
+        this.email = email;
+        this.gender = gender;
+        this.location = location;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.isMentor = isMentor;
+        this.isMentee = isMentee;
+        this.isAdmin = isAdmin;
+    }
+
 
     public int getId(){
         return id;
@@ -101,4 +122,29 @@ public class User {
         this.gender = gender;
     }
 
+    public boolean isIsMentor() {
+        return isMentor;
+    }
+
+    public void setIsMentor(boolean isMentor) {
+        this.isMentor = isMentor;
+    }
+
+    public boolean isIsMentee() {
+        return isMentee;
+    }
+
+    public void setIsMentee(boolean isMentee) {
+        this.isMentee = isMentee;
+    }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+     
+    
 }
