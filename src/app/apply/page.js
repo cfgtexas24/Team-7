@@ -36,7 +36,7 @@ export default function Home() {
     state: "",
     city: "",
     zipCode: "",
-    additionalInfo: "", // Add this field
+    //additionalInfo: "", // Add this field
   });
 
   const handleOptionClick = (option) => {
@@ -55,12 +55,36 @@ export default function Home() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({
       ...formData,
       selectedOptions,
     });
+
+    const data = {
+      ...formData,
+      selectedOptions,
+    };
+
+    try {
+      const response = await fetch("http://52.91.214.247:8080/api/user/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error sending post call to backend");
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error("Error", error);
+    }
   };
 
   return (

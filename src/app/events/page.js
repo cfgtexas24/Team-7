@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react";
 
 export default function Events() {
@@ -8,6 +9,7 @@ export default function Events() {
       try {
         const response = await fetch("http://52.91.214.247:8080/api/events/");
         const data = await response.json();
+        console.log(data)
         setEvents(data);
       } catch (error) {
         console.error("Error Fetching events", error);
