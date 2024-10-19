@@ -15,6 +15,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 
 export default function Home() {
+
   const options = [
     "Being paired with a volunteer mentor",
     "Housing",
@@ -91,19 +92,19 @@ export default function Home() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-
-    if (!validateFields()) return
-
+    if (!validateFields()) 
+      return
     const form = new FormData()
     Object.entries(formData).forEach(([key, value]) => {
       form.append(key, value)
     })
-
     console.log({
       formData: Object.fromEntries(form.entries()),
     })
+    const response = await fetch('/api/sms', {method: "GET"});
+    console.log(response.body);
   }
 
   return (
