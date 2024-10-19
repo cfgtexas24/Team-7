@@ -76,7 +76,7 @@ export default function Events() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("http://52.91.214.247:8080/api/events/"); // Replace with your backend API URL
+        const response = await fetch("http://52.91.214.247:8080/api/events/"); 
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -89,12 +89,6 @@ export default function Events() {
     fetchEvents();
   }, []);
 
-  /* useEffect(() => {
-    setEvents((prevEvents) => {
-      const updatedEvents = [...prevEvents, ...Dummydata];
-      return updatedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
-    });
-  }, []); */
 
   const getTimeUntilEvent = (eventDate, startTime) => {
     if (!eventDate || !startTime) {
