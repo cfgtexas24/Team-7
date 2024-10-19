@@ -584,6 +584,15 @@ video {
 .mr-1 {
   margin-right: 0.25rem;
 }
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
 .inline-block {
   display: inline-block;
 }
@@ -799,6 +808,9 @@ video {
 }
 .pt-20 {
   padding-top: 5rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .text-center {
   text-align: center;

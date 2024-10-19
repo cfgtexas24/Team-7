@@ -64,9 +64,9 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white flex justify-center items-center">
+    <div className="w-full min-h-screen bg-white flex justify-center">
       <form
-        className="max-w-[600px] bg-gray-800 w-full flex flex-col p-8 rounded-md gap-4 shadow-xl"
+        className="max-w-[600px] bg-gray-800 w-full flex flex-col p-8 rounded-md gap-4 shadow-xl h-fit mt-8"
         onSubmit={handleSubmit}
       >
         <h3 className="font-bold text-2xl text-white mb-3">
