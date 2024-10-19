@@ -8,7 +8,7 @@ export default function NonEmergency() {
   const items = [
     { icon: Book, title: "Resources", color: "from-blue-400 to-blue-600", link: "/resources" },
     { icon: Calendar, title: "Events", color: "from-green-400 to-green-600", link: "/events" },
-    { icon: Presentation, title: "Life Lessons", color: "from-purple-400 to-purple-600", link: "/resources" },
+    { icon: Presentation, title: "Life Lessons", color: "from-purple-400 to-purple-600", link: "/life" },
   ]
 
   return (
