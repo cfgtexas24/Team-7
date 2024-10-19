@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from 'next/router';
+
 import {
   Select,
   SelectContent,
@@ -119,6 +121,11 @@ export default function Home() {
     };
 
     const response = await fetch("/api/sms", { method: "GET" });
+    if (response.ok) {
+      router.push('/thank-you');
+    } else {
+      console.error('Submission failed', response.statusText);
+    }
   };
 
   const containerVariants = {

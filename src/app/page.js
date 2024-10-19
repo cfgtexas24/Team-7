@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <motion.div 
-      className="flex h-[90vh] bg-gray-50"
+      className="flex h-[90vh] min-h-screen bg-gray-50"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

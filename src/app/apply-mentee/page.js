@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const options = [
@@ -121,6 +122,12 @@ export default function Home() {
     };
 
     const response = await fetch("/api/sms", { method: "GET" });
+    if (response.ok) {
+      router.push('/thank-you'); // Navigate to thank-you page on success
+    } else {
+      // Handle error response here
+      console.error('Submission failed', response.statusText);
+    }
   };
 
   const containerVariants = {
@@ -169,7 +176,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-[90vh] bg-gray-100 justify-center py-8">
+    <div className="flex h-[90vh] min-h-fit bg-gray-100 justify-center py-8">
       <motion.form
         variants={containerVariants}
         initial="hidden"

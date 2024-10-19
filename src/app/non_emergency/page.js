@@ -14,7 +14,7 @@ export default function NonEmergency() {
   ]
 
   return (
-    <div className="flex h-[90vh] justify-center bg-gradient-to-br from-gray-100 to-gray-300">
+    <div className="flex h-[90vh] min-h-screen justify-center bg-gradient-to-br from-gray-100 to-gray-300">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
