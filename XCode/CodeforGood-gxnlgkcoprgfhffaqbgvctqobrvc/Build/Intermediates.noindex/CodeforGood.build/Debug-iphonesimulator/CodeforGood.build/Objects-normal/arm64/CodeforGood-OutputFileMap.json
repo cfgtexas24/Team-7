@@ -1,0 +1,38 @@
+{
+  "" : {
+    "diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master.dia",
+    "emit-module-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master-emit-module.dia",
+    "swift-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master.swiftdeps"
+  },
+  "/Users/vicc/CodeforGood/CodeforGood/CodeforGoodApp.swift" : {
+    "const-values" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.swiftconstvalues",
+    "dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.d",
+    "diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.dia",
+    "index-unit-output-path" : "/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.o",
+    "llvm-bc" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.bc",
+    "object" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.o",
+    "swift-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp.swiftdeps",
+    "swiftmodule" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGoodApp~partial.swiftmodule"
+  },
+  "/Users/vicc/CodeforGood/CodeforGood/ContentView.swift" : {
+    "const-values" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
