@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -10,9 +10,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AlertCircle } from "lucide-react"
+} from "@/components/ui/select";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 export default function Home() {
   const options = [
@@ -25,9 +25,9 @@ export default function Home() {
     "Joining STORM",
     "Ready-Up Service Center",
     "Other",
-  ]
+  ];
 
-  const [selectedOptions, setSelectedOptions] = useState([])
+  const [selectedOptions, setSelectedOptions] = useState([]);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -40,35 +40,35 @@ export default function Home() {
     additionalInfo: "",
     gender: "",
     age: "",
-    emergency: "",
-  })
-  const [errors, setErrors] = useState({})
+    //emergency: "",
+  });
+  const [errors, setErrors] = useState({});
 
   const handleOptionClick = (option) => {
     setSelectedOptions((prevSelected) =>
       prevSelected.includes(option)
         ? prevSelected.filter((item) => item !== option)
         : [...prevSelected, option]
-    )
-  }
+    );
+  };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSelectChange = (value) => {
     setFormData((prevData) => ({
       ...prevData,
       emergency: value,
-    }))
-  }
+    }));
+  };
 
   const validateFields = () => {
-    const newErrors = {}
+    const newErrors = {};
     const requiredFields = [
       "firstName",
       "lastName",
@@ -79,32 +79,63 @@ export default function Home() {
       "gender",
       "age",
       "emergency",
-    ]
+    ];
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
-        newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`
+        newErrors[field] = `${
+          field.charAt(0).toUpperCase() + field.slice(1)
+        } is required`;
       }
-    })
+    });
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if (!validateFields()) return
+    if (!validateFields()) return;
 
-    const form = new FormData()
+    const form = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      form.append(key, value)
-    })
+      form.append(key, value);
+    });
 
     console.log({
       formData: Object.fromEntries(form.entries()),
-    })
-  }
+    });
+
+    console.log({
+      ...formData,
+      selectedOptions,
+    });
+
+    const data = {
+      ...formData,
+      selectedOptions,
+    };
+
+    try {
+      const response = await fetch("http://52.91.214.247:8080/api/user/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error sending post call to backend");
+      }
+
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
 
   return (
     <div className="w-full min-h-screen bg-gray-100 flex justify-center py-8">
@@ -112,7 +143,9 @@ export default function Home() {
         className="max-w-[600px] bg-white w-full flex flex-col p-8 rounded-lg shadow-xl h-fit"
         onSubmit={handleSubmit}
       >
-        <h3 className="font-bold text-2xl text-gray-800 mb-6">Get Help from STORM</h3>
+        <h3 className="font-bold text-2xl text-gray-800 mb-6">
+          Get Help from STORM
+        </h3>
 
         {Object.keys(errors).length > 0 && (
           <Alert variant="destructive" className="mb-6">
@@ -136,7 +169,9 @@ export default function Home() {
             <SelectGroup>
               <SelectItem value="Homeless">Homeless</SelectItem>
               <SelectItem value="Sleeping in Car">Sleeping in Car</SelectItem>
-              <SelectItem value="No Parent/Guardian">No Parent/Guardian</SelectItem>
+              <SelectItem value="No Parent/Guardian">
+                No Parent/Guardian
+              </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -220,7 +255,9 @@ export default function Home() {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Additional information</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Additional information
+          </label>
           <Textarea
             placeholder="Message"
             name="additionalInfo"
@@ -235,5 +272,5 @@ export default function Home() {
         </button>
       </form>
     </div>
-  )
+  );
 }
