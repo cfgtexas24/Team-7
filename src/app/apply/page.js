@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import {
   Select,

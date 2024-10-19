@@ -17,7 +17,7 @@ export async function GET() {
         from: process.env.NEXT_PUBLIC_EMAIL,
         to: process.env.NEXT_PUBLIC_NUMBER,
         subject: 'ALERT',
-        text: 'someone is homeless..'
+        text: 'Joe is at risk of homelessness in Dallas Tx, age 18, gender m'
     };
 
     try {
