@@ -1,12 +1,19 @@
+/*
+ * EventsService.java
+ * 
+ * This file handles the CRUD commands
+ * for the Events entity
+ */
 package com.example.backend.services;
-
-import com.example.backend.entity.Events;
-import com.example.backend.repository.EventsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.backend.entity.Events;
+import com.example.backend.repository.EventsRepository;
 
 @Service
 public class EventsService {

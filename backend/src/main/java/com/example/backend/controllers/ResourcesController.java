@@ -1,3 +1,8 @@
+/**
+ * This file sets the api routes for 
+ * POST, PUT, CREATE, DELETE
+ * of Resource entity
+ */
 package com.example.backend.controllers;
 
 import java.util.List;

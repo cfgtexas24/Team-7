@@ -92,7 +92,7 @@ export default function Resources() {
               </div>
               <CardHeader className="flex-grow">
                 <CardTitle>{category.title}</CardTitle>
-                <CardDescription>{category.description}</CardDescription>
+                <CardDescription></CardDescription>
               </CardHeader>
               <CardFooter className="mt-auto">
                 <Dialog

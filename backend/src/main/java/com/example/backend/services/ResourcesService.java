@@ -1,12 +1,19 @@
+/*
+ * ResouresService.java
+ * 
+ * This file handles the CRUD commands
+ * for the Resources entity
+ */
 package com.example.backend.services;
-
-import com.example.backend.entity.Resources;
-import com.example.backend.repository.ResourcesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.backend.entity.Resources;
+import com.example.backend.repository.ResourcesRepository;
 
 @Service
 public class ResourcesService {

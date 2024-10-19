@@ -61,7 +61,7 @@ public class Events {
         this.endTime = endTime;
     }
 
-    public Events(){
+    public Events() {
     }
 
     public int getId() {
