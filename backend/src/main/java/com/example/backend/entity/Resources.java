@@ -27,7 +27,7 @@ public class Resources {
     @Column(name = "link")
     private String link;
 
-    @Column(name = "body")
+    @Column(name = "body",columnDefinition = "TEXT")
     private String body;
 
     public Resources() {
