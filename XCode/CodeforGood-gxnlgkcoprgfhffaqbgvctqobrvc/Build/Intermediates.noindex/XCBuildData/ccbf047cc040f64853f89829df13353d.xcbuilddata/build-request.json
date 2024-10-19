@@ -1,0 +1,66 @@
+{
+  "buildCommand" : {
+    "command" : "preview",
+    "style" : "xojit"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "08179313a1a837e51d6aaeb6525f9c00b0b0159871252a5c22e7a6d347b2d4dd"
+    }
+  ],
+  "containerPath" : "/Users/vicc/CodeforGood/CodeforGood.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator18.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Products",
+      "derivedDataPath" : "/Users/vicc/Documents/Team-7/XCode",
+      "indexDataStoreFolderPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone17,1",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "18.0",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone17,1",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "CLANG_COVERAGE_MAPPING" : "YES",
+          "CLANG_PROFILE_DATA_DIRECTORY" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/ProfileData",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "ONLY_ACTIVE_ARCH" : "YES",
+          "TARGET_DEVICE_IDENTIFIER" : "A72822EE-D278-4DA6-A3CA-95689BE17B40",
+          "TARGET_DEVICE_MODEL" : "iPhone17,1",
+          "TARGET_DEVICE_OS_VERSION" : "18.0",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

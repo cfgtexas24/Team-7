@@ -1,0 +1,9 @@
+version: "Apple Swift version 6.0 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)"
+options: "e1a3ce256af84233e798d747c415b27b538caa15e6256912fa2269c3406203d0"
+build_start_time: [1729296682, 181641000]
+build_end_time: [1729296682, 435376000]
+inputs:
+  "/Users/vicc/CodeforGood/CodeforGood/CodeforGoodApp.swift": [1729295919, 101590866]
+  "/Users/vicc/CodeforGood/CodeforGood/ContentView.swift": [1729295919, 104202513]
+  ? "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1729296675, 840246095]

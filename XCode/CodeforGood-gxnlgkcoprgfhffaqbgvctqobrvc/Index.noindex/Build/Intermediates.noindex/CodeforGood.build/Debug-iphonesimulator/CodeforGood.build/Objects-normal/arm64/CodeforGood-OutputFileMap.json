@@ -1,0 +1,18 @@
+{
+  "" : {
+    "dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master.d",
+    "diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master.dia",
+    "emit-module-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master-emit-module.dia",
+    "swift-dependencies" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/Objects-normal/arm64/CodeforGood-master.swiftdeps"
+  },
+  "/Users/vicc/CodeforGood/CodeforGood/CodeforGoodApp.swift" : {
+
+  },
+  "/Users/vicc/CodeforGood/CodeforGood/ContentView.swift" : {
+
+  },
+  "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/CodeforGood.build/Debug-iphonesimulator/CodeforGood.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+
+  }
+}
