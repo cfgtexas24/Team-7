@@ -4,13 +4,13 @@ import { Facebook, Instagram, Twitter, Phone, Mail } from 'lucide-react';
 export default function NavBar() {
   return (
     <nav className="p-4 bg-white px-20">
-      <div className="flex flex-row justify-between border-b">
+      <div className="flex sm:flex-row flex-col justify-between border-b">
         <div className="flex flex-row gap-2 text-black">
         <Facebook />
         <Instagram />
         <Twitter />
         </div>
-        <div className="mb-2 flex flex-row gap-2 text-black">
+        <div className="mb-2 flex sm:flex-row flex-col gap-2 text-black">
           <span className="flex flex-row gap-2"> <Phone /> 469-431-3582</span>
           <span className="flex flex-row gap-2"> <Mail /> contact@stormcohs.org</span>
         </div>

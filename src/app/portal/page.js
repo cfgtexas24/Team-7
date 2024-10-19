@@ -1,10 +1,7 @@
-import Emergency from "../emergency/page";
-import { Navbar } from "../navbar/page";
-
-export default function NonEmergency() {
+export default function Portal() {
     return (
-        <main>
-            <Navbar/>
-        </main>
+        <div className="w-full min-h-screen">
+            
+        </div>
     );
 }
