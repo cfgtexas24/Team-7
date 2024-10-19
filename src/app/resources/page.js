@@ -22,83 +22,32 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const categories = [
-  {
-    title: "CPS Case Court Hearings",
-    description: "Information and resources related to CPS court proceedings",
-    image: "/CPS.jpg",
-    data: [
-      {
-        id: 1,
-        value:
-          "Information on what an attorney for a Parent does in a CPS case",
-        link: "https://texasfosteryouth.org/download/4892/",
-      },
-    ],
-  },
-  {
-    title: "Benefits for Aged Out and Older Youth",
-    description:
-      "Resources and information for foster youth transitioning to adulthood",
-    image: "/Youth.jpg",
-    data: [
-      {
-        id: 9,
-        value: "Tuition Waiver FAQ",
-        link: "https://texasfosteryouth.org/download/13598/",
-      },
-    ],
-  },
-  {
-    title: "Getting Your History",
-    description: "How to obtain your CPS records and personal history",
-    image: "/Records.jpg",
-    data: [
-      {
-        id: 22,
-        value: "Obtaining Your CPS Records*",
-        link: "https://texasfosteryouth.org/download/109/",
-      },
-    ],
-  },
-];
-
-
-/* private int id;
-
-    @Column(name = "category")
-    private String category;
-    
-    @Column(name = "link")
-    private String link;
-
-    @Column(name = "body")
-    private String body;
- */
-
 export default function Resources() {
   const [openCategory, setOpenCategory] = useState(null);
-
-
-  const [resource, setResource] = useState(null);
-  const [parsedData, setParsedData] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     // Function to fetch the resource from the backend
     const fetchResource = async () => {
       try {
         const response = await fetch('http://52.91.214.247:8080/api/resources/');
-
-        if(!response.ok){
+        if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const resource = await response.json();
-        const dataArray = JSON.parse(resource.data); 
-        
-        dataArray.data = JSON.parse(dataArray.data)
-        
-        setResource(dataArray);
-        
+        console.log('Fetched resource:', resource);
+
+
+        // Transform the data to match the current categories structure
+        const transformedCategories = resource.map(item => ({
+          title: item.category,
+          description: item.category,
+          image: item.link,
+          body: JSON.parse(item.body)
+        }));
+
+        setCategories(transformedCategories);
+        console.log('Transformed categories:', transformedCategories);
       } catch (error) {
         console.error('Error fetching resource:', error);
       }
@@ -106,8 +55,6 @@ export default function Resources() {
 
     fetchResource();
   }, []);
-
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
@@ -156,15 +103,12 @@ export default function Resources() {
                     </DialogHeader>
                     <ScrollArea className="h-[60vh] mt-4 pr-4">
                       <ul className="space-y-2">
-                        {category.data.map((item) => (
+                        {category.body.map((item) => (
                           <li
                             key={item.id}
                             className="hover:bg-secondary rounded-md p-2 transition-colors"
                           >
-                            <Link
-                              href={item.link}
-                              className="text-primary hover:underline"
-                            >
+                            <Link href={item.link} className="text-primary hover:underline">
                               {item.value}
                             </Link>
                           </li>
