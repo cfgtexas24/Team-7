@@ -9,6 +9,8 @@ package com.example.backend.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -16,6 +18,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users") 
 public class User {
+
+    public enum EmergencyType {
+        HOMELESS, SLEEPING_IN_CAR, NO_PARENT
+    }
  
     @Id
     @GeneratedValue 
@@ -46,11 +52,15 @@ public class User {
     private boolean isMentee;
     @Column(name = "isAdmin")
     private boolean isAdmin;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "emergencyType")
+    private EmergencyType emergencyType;
+
 
     public User(){
     }
 
-    public User(int id, String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(int id, String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin,  EmergencyType emergencyType){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,9 +75,10 @@ public class User {
         this.isMentor = isMentor;
         this.isMentee = isMentee;
         this.isAdmin = isAdmin;
+        this.emergencyType = emergencyType;
     }
 
-    public User(String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin,  EmergencyType emergencyType){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -81,6 +92,7 @@ public class User {
         this.isMentor = isMentor;
         this.isMentee = isMentee;
         this.isAdmin = isAdmin;
+        this.emergencyType = emergencyType;
     }
 
     public int getId(){
@@ -193,6 +205,14 @@ public class User {
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public EmergencyType getEmergencyType() {
+        return emergencyType;
+    }
+
+    public void setEmergencyType(EmergencyType emergencyType) {
+        this.emergencyType = emergencyType;
     }
     
 }
