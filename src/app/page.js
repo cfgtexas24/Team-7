@@ -3,6 +3,7 @@ import { ArrowRight, AlertTriangle } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
+  
   return (
     <div className="flex min-h-screen bg-gray-50">
       <div className="container mx-auto flex flex-col lg:flex-row items-center -mt-60 justify-center px-4 py-8 lg:py-12">

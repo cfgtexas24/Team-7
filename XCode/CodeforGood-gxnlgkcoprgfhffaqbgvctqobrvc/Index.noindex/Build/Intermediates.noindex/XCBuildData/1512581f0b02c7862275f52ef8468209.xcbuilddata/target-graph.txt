@@ -1,0 +1,13 @@
+Target dependency graph (8 targets)
+Target 'CodeforGoodUITests' in project 'CodeforGood' (no dependencies)
+Target 'CodeforGoodUITests' in project 'CodeforGood'
+➜ Explicit dependency on target 'CodeforGood' in project 'CodeforGood'
+Target 'CodeforGoodUITests' in project 'CodeforGood'
+➜ Explicit dependency on target 'CodeforGood' in project 'CodeforGood'
+Target 'CodeforGoodTests' in project 'CodeforGood' (no dependencies)
+Target 'CodeforGoodTests' in project 'CodeforGood'
+➜ Explicit dependency on target 'CodeforGood' in project 'CodeforGood'
+Target 'CodeforGoodTests' in project 'CodeforGood'
+➜ Explicit dependency on target 'CodeforGood' in project 'CodeforGood'
+Target 'CodeforGood' in project 'CodeforGood' (no dependencies)
+Target 'CodeforGood' in project 'CodeforGood' (no dependencies)

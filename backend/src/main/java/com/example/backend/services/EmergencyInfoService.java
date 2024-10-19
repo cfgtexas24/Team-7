@@ -1,14 +1,16 @@
 /*
- * UserService.java
+ * EmergencyService.java
  * 
  * This file handles the CRUD commands
- * for the User entity
+ * for the EmergencyInfo entity
  */
 package com.example.backend.services;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.stereotype.Service;
+
 import com.example.backend.entity.EmergencyInfo;
 import com.example.backend.repository.EmergencyInfoRepository;
 

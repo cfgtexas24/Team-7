@@ -1,0 +1,54 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "08179313a1a837e51d6aaeb6525f9c00b0b0159871252a5c22e7a6d347b2d4dd"
+    },
+    {
+      "guid" : "08179313a1a837e51d6aaeb6525f9c008657519ea578f900837d086567290b7c"
+    },
+    {
+      "guid" : "08179313a1a837e51d6aaeb6525f9c00336b70cbb23021a25cebbc280c7d03a7"
+    }
+  ],
+  "containerPath" : "/Users/vicc/CodeforGood/CodeforGood.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/vicc/Documents/Team-7/XCode",
+      "indexDataStoreFolderPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Build/Products",
+      "pchPath" : "/Users/vicc/Documents/Team-7/XCode/CodeforGood-gxnlgkcoprgfhffaqbgvctqobrvc/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

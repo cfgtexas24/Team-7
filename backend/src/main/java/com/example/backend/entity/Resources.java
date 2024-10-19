@@ -30,6 +30,9 @@ public class Resources {
     @Column(name = "body")
     private String body;
 
+    public Resources() {
+    }
+
     public Resources(int id, String category, String link, String body) {
         this.id = id;
         this.body = body;
