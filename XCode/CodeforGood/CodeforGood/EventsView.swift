@@ -46,38 +46,39 @@ struct EventCard: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 5) {
-                Text(event.name)
-                    .font(.system(size: 18, weight: .bold)) // Custom size for event name
-                    .padding(.bottom, 2)
-                
-                Text(event.address)
-                    .font(.system(size: 14)) // Custom size for address
-                    .foregroundColor(.secondary)
-                
-                Text(event.description)
-                    .font(.system(size: 14)) // Custom size for description
-                    .lineLimit(3)
-            }
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(event.name)
+                        .font(.system(size: 17, weight: .bold)) // Custom size for event name
+                        .padding(.bottom, 8)
                     
-                    Spacer()
+                    Text(event.address)
+                        .font(.system(size: 11)) // Custom size for address
+                        .padding(.bottom, 10)
+                        .foregroundColor(.secondary)
                     
-                    Text(event.time)
-                        .font(.system(size: 14, weight: .medium)) // Customize font size
-                        .foregroundColor(.primary)
-                        .frame(width: 70, alignment: .trailing) // Slightly smaller width to allow overlap
-                        .padding(.trailing, -30) // Negative padding to overlap into the event info area
-                        .frame(width: 60) // Fixed width for consistent alignment
-                        .lineLimit(1)
+                    Text(event.description)
+                        .font(.system(size: 12)) // Custom size for description
+                        .lineLimit(8)
                 }
-                .padding()
-                .frame(width: 350, height: 150) // Set a fixed size for the event card
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                
+                Spacer()
+                
+                Text(event.time)
+                    .font(.system(size: 14, weight: .medium)) // Custom size for time
+                    .foregroundColor(.primary)
+                    .frame(width: 134) // Adjust the frame width for better positioning
+                    .padding(.leading, -25) // Negative padding to shift the time further left
+                    .lineLimit(1) // Ensure time is in one line
             }
+            .padding()
+            .frame(width: 350, height: 150)
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
         }
-
+    }
+}
 
 struct Event: Identifiable {
     let id = UUID()

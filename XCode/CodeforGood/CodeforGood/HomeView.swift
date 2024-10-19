@@ -30,7 +30,7 @@ struct HomeView: View {
                             .foregroundColor(.primary)
                             .padding(.top, 5)
                     }
-                    .padding(.top, -40) // Adjust this value to move the button higher
+                    .padding(.bottom, -8) // Adjust this value to move the button higher
                     .padding(.trailing, 20) // Adjust this value for horizontal spacing
                 }
                 
