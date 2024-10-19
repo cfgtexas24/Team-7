@@ -1,68 +1,140 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+const categories = [
+  {
+    title: "CPS Case Court Hearings",
+    description: "Information and resources related to CPS court proceedings",
+    image: "/CPS.jpg",
+    data: [
+      {
+        id: 1,
+        value:
+          "Information on what an attorney for a Parent does in a CPS case",
+        link: "https://texasfosteryouth.org/download/4892/",
+      },
+    ],
+  },
+  {
+    title: "Benefits for Aged Out and Older Youth",
+    description:
+      "Resources and information for foster youth transitioning to adulthood",
+    image: "/Youth.jpg",
+    data: [
+      {
+        id: 9,
+        value: "Tuition Waiver FAQ",
+        link: "https://texasfosteryouth.org/download/13598/",
+      },
+    ],
+  },
+  {
+    title: "Getting Your History",
+    description: "How to obtain your CPS records and personal history",
+    image: "/Records.jpg",
+    data: [
+      {
+        id: 22,
+        value: "Obtaining Your CPS Records*",
+        link: "https://texasfosteryouth.org/download/109/",
+      },
+    ],
+  },
+];
 
 export default function Resources() {
-    const cpsData = [
-        {id: 1, value: "Information on what an attorney for a Parent does in a CPS case", link: "https://texasfosteryouth.org/download/4892/"},
-        {id: 2, value: "Attorney Ad Litems*", link: "https://texasfosteryouth.org/download/424/"},
-        {id: 3, value: "Checklist for Judges*", link: "https://texasfosteryouth.org/download/359/"},
-        {id: 4, value: "Court Hearings for Foster Youth Over 18 (Extended Jurisdiction)*", link: "https://texasfosteryouth.org/download/415/"},
-        {id: 5, value: "Detailed Checklist for Attorney Ad Litems and CASAs Preparing Foster Youth for Post Foster Care Life*", link: "https://texasfosteryouth.org/download/390/"},
-        {id: 6, value: "Directing Attorney Ad Litem to Advocate to Attend Court Hearings*", link: "https://texasfosteryouth.org/download/421/"},
-        {id: 7, value: "Report to Court by Foster Youth", link: "https://texasfosteryouth.org/download/427/"},
-        {id: 8, value: "Rights of Foster Youth to Attend Court Hearings Legal Memorandum*", link: "https://texasfosteryouth.org/download/418/"},
-    ];
+  const [openCategory, setOpenCategory] = useState(null);
 
-    const studentData = [
-        {id: 9, value: "Tuition Waiver FAQ", link: "https://texasfosteryouth.org/download/13598/"},
-        {id: 10, value: "Education and Training Voucher FAQ", link: "https://texasfosteryouth.org/download/13595/"},
-        {id: 11, value: "Transitional Living Services Resource Guide-April 2020", link: "https://texasfosteryouth.org/download/12480/"},
-        {id: 12, value: "BRIEF OVERVIEW OF TRANSITIONAL LIVING SERVICES -January 2020", link: "https://texasfosteryouth.org/download/4660/"},
-        {id: 13, value: "A Guide to Aging Out of Foster Care in Texas- 7th EDITION*", link: "https://texasfosteryouth.org/download/3866/"},
-        {id: 14, value: "Tuition and Fee Waiver Process", link: "https://texasfosteryouth.org/download/1598/"},
-        {id: 15, value: "College Tuition and Fee Waiver Information*", link: "https://texasfosteryouth.org/download/1133/"},
-        {id: 16, value: "Caring for Youth and Young Adults - A Guide from the Texas Department of Family and Protective Services", link: "https://texasfosteryouth.org/download/100/"},
-        {id: 17, value: "Free Health Insurance (Medicaid) for Aged Out Foster Youth Ages 18-25 (updated July 2016)*", link: "https://texasfosteryouth.org/download/362/"},
-        {id: 18, value: "Living with a Parent When Aging Out of Foster Care for Advocates*", link: "https://texasfosteryouth.org/download/349/"},
-        {id: 19, value: "Living with a Parent When Aging Out of Foster Care for Youth*", link: "https://texasfosteryouth.org/download/352/"},
-        {id: 20, value: "Medicaid Residency Verification Letter (Sample- updated MAY 2017)", link: "https://texasfosteryouth.org/download/826/"},
-        {id: 21, value: "Transitional Benefits and Out of State Foster Youth*", link: "https://texasfosteryouth.org/download/346/"}
-    ];
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
+      <div className="relative h-64 bg-blue-600 mb-12">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 bg-[url('/svgs/bg-pattern.svg')] bg-no-repeat bg-center bg-cover z-0 opacity-80" />
+          <h1 className="text-4xl font-bold text-white text-center">
+            Resources
+          </h1>
+        </div>
+      </div>
 
-    const histData = [
-        {id: 22, value: "Obtaining Your CPS Records*", link: "https://texasfosteryouth.org/download/109/"}
-    ]
-
-    return (
-        <main>
-
-            <div class="items-center">
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">CPS Case Court Hearings:</h2>
-                <ul class="max-w-md space-y-1 text-gray-800 list-disc list-inside dark:text-gray-400">
-                    {cpsData.map(x => {
-                        return (
-                            <li key={x.id}><Link href={x.link}>{x.value}</Link></li>
-                        );
-                    })}
-                </ul>
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Benefits for Aged Out and Older Foster Youth:</h2>
-                <ul class="max-w-md space-y-1 text-gray-800 list-disc list-inside dark:text-gray-400">
-                    {studentData.map(x => {
-                        return (
-                            <li key={x.id}><Link href={x.link}>{x.value}</Link></li>
-                        )
-                    })}
-                </ul>
-            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Getting Your History</h2>
-                <ul class="max-w-md space-y-1 text-gray-800 list-disc list-inside dark:text-gray-400">
-                    {histData.map(x => {
-                        return (
-                            <li key={x.id}><Link href={x.link}>{x.value}</Link></li>
-                        )
-                    })}
-                </ul>
-            </div>
-        </main>
-    );
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((category, index) => (
+            <Card key={index} className="flex flex-col h-full">
+              <div className="h-48 w-full">
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  width={300}
+                  height={200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardHeader className="flex-grow">
+                <CardTitle>{category.title}</CardTitle>
+                <CardDescription>{category.description}</CardDescription>
+              </CardHeader>
+              <CardFooter className="mt-auto">
+                <Dialog
+                  open={openCategory === index}
+                  onOpenChange={(isOpen) =>
+                    setOpenCategory(isOpen ? index : null)
+                  }
+                >
+                  <DialogTrigger asChild>
+                    <Button className="w-full">View Resources</Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <DialogHeader>
+                      <DialogTitle>{category.title}</DialogTitle>
+                      <DialogDescription>
+                        {category.description}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ScrollArea className="h-[60vh] mt-4 pr-4">
+                      <ul className="space-y-2">
+                        {category.data.map((item) => (
+                          <li
+                            key={item.id}
+                            className="hover:bg-secondary rounded-md p-2 transition-colors"
+                          >
+                            <Link
+                              href={item.link}
+                              className="text-primary hover:underline"
+                            >
+                              {item.value}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </ScrollArea>
+                  </DialogContent>
+                </Dialog>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </main>
+    </div>
+  );
 }
