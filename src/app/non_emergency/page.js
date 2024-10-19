@@ -28,7 +28,7 @@ export default function NonEmergency() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2, duration: 0.5 }}
-            className="flex flex-col items-center gap-4 transition-all duration-300 hover:scale-110"
+            className="flex flex-col items-center gap-4 transition-all duration-300 hover:scale-110 max-w-[150px] text-center"
 
           >
             <motion.div

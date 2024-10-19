@@ -27,7 +27,6 @@ export default function Resources() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Function to fetch the resource from the backend
     const fetchResource = async () => {
       try {
         const response = await fetch('http://52.91.214.247:8080/api/resources/');
@@ -38,7 +37,6 @@ export default function Resources() {
         console.log('Fetched resource:', resource);
 
 
-        // Transform the data to match the current categories structure
         const transformedCategories = resource.map(item => ({
           title: item.category,
           description: item.category,
