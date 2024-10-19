@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1D078E5C2CC3CF3700F5EDAE /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 1D078E5B2CC3CF3700F5EDAE /* SwiftSMTP */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1DC4B7522CC33511005E61A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D078E5C2CC3CF3700F5EDAE /* SwiftSMTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = CodeforGood;
 			packageProductDependencies = (
+				1D078E5B2CC3CF3700F5EDAE /* SwiftSMTP */,
 			);
 			productName = CodeforGood;
 			productReference = 1DC4B7412CC3350F005E61A4 /* CodeforGood.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 1DC4B7382CC3350F005E61A4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1D078E5A2CC3CF3700F5EDAE /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1DC4B7422CC3350F005E61A4 /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D078E5A2CC3CF3700F5EDAE /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IBM-Swift/Swift-SMTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D078E5B2CC3CF3700F5EDAE /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D078E5A2CC3CF3700F5EDAE /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1DC4B7392CC3350F005E61A4 /* Project object */;
 }

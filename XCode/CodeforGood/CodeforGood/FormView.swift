@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import SwiftSMTP
 
 struct FormView: View {
     @State private var currentQuestionIndex = 0
@@ -239,15 +241,58 @@ struct FormView: View {
             isFormCompleted = true
         }
 
-        private func sendEmergencyEmail() {
-            print("Sending emergency email...")
-        }
     }
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
         FormView()
-            .previewDevice("iPhone 14 Pro") // Specify the device for the preview
+            .previewDevice("iPhone 15 Pro") // Specify the device for the preview
     }
 }
 
+    extension FormView {
+        private func sendEmergencyEmail() {
+            // SMTP configuration for Gmail
+            let smtp = SMTP(
+                hostname: "smtp.gmail.com", // SMTP server address
+                email: "your-email@gmail.com", // Your Gmail address
+                password: "your-app-password", // Use an App Password if you have 2FA enabled
+                port: 465, // Use 587 for TLS, or 465 for SSL
+                tlsMode: .requireSTARTTLS // Or .alwaysSTARTTLS depending on your preference
+            )
+            
+            // Create the sender and recipient
+            let from = Mail.User(name: "Your Name", email: "victorcadenamgmt@gmail.com")
+            let to = Mail.User(name: "Admin", email: "2109319000@txt.att.com")
+            
+            // Construct the email message using the information provided by the user
+            let emergencyMessage = """
+            Emergency Alert:
+            
+            Emergency Type: \(selectedEmergencyType)
+            Name: \(firstName) \(lastName)
+            Email: \(email)
+            Phone Number: \(phoneNumber)
+            Age: \(age), Gender: \(gender)
+            Address: \(address), \(city), \(state) \(zipCode)
+            Additional Info: \(additionalInfo)
+            """
+            
+            // Create the mail object with the constructed message
+            let mail = Mail(
+                from: from,
+                to: [to],
+                subject: "ALERT: Emergency",
+                text: emergencyMessage
+            )
+            
+            // Send the email
+            smtp.send(mail) { (error) in
+                if let error = error {
+                    print("Failed to send email: \(error)")
+                } else {
+                    print("Email sent successfully.")
+                }
+            }
+        }
+    }
