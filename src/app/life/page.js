@@ -17,7 +17,7 @@ export default function Life() {
       title: "Budget Routine", 
       color: "from-green-400 to-green-600", 
       videoUrl: "https://www.youtube.com/watch?v=IIKr2915l2g", // Replace with actual video URL
-      gameUrl: "https://scratch.mit.edu/projects/1083696854/embed"
+      gameUrl: "https://scratch.mit.edu/projects/1083758756/embed"
     },
     { 
       icon: Briefcase, 
