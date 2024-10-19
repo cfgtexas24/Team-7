@@ -1,9 +1,7 @@
-import Emergency from "../emergency/page";
-
-export default function NonEmergency() {
+export default function Portal() {
     return (
-        <main>
-
-        </main>
+        <div className="w-full min-h-screen">
+            
+        </div>
     );
 }
