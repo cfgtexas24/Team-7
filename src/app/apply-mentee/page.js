@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useRouter } from 'next/navigation';
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -13,9 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const router = useRouter()
@@ -44,8 +43,16 @@ export default function Home() {
     additionalInfo: "",
     gender: "",
     age: "",
-    //emergency: "",
+    reason: "",
   });
+
+  const handleSelectChange = (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      reason: value,
+    }));
+  };
+
   const [errors, setErrors] = useState({});
 
   const handleOptionClick = (option) => {
@@ -64,25 +71,15 @@ export default function Home() {
     }));
   };
 
-  const handleSelectChange = (value) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      emergency: value,
-    }));
-  };
-
   const validateFields = () => {
     const newErrors = {};
     const requiredFields = [
       "firstName",
       "lastName",
-      "email",
-      "phoneNumber",
       "state",
       "city",
       "gender",
       "age",
-      "emergency",
     ];
 
     requiredFields.forEach((field) => {
@@ -92,6 +89,10 @@ export default function Home() {
         } is required`;
       }
     });
+
+    if (selectedOptions.length === 0) {
+      newErrors.options = "At least one option must be selected";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -123,8 +124,9 @@ export default function Home() {
 
     const response = await fetch("/api/sms", { method: "GET" });
     if (response.ok) {
-      router.push('/thank-you');
+      router.push('/thank-you'); // Navigate to thank-you page on success
     } else {
+      // Handle error response here
       console.error('Submission failed', response.statusText);
     }
   };
@@ -151,22 +153,31 @@ export default function Home() {
     },
   };
 
-  const errorVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3 },
+  const checkboxVariants = {
+    checked: {
+      backgroundColor: "rgb(51, 65, 85)",
+      scale: 1.1,
+      transition: { duration: 0.2 },
     },
-    exit: {
-      opacity: 0,
-      x: 20,
-      transition: { duration: 0.3 },
+    unchecked: {
+      backgroundColor: "transparent",
+      scale: 1,
+      transition: { duration: 0.2 },
+    },
+  };
+
+  const optionVariants = {
+    hover: {
+      scale: 1.02,
+      backgroundColor: "rgb(241, 245, 249)",
+    },
+    tap: {
+      scale: 0.98,
     },
   };
 
   return (
-    <div className="flex h-[90vh] bg-gray-100 justify-center py-8">
+    <div className="flex h-[90vh] min-h-fit bg-gray-100 justify-center py-8">
       <motion.form
         variants={containerVariants}
         initial="hidden"
@@ -178,16 +189,16 @@ export default function Home() {
           variants={itemVariants}
           className="font-bold text-2xl text-gray-800 mb-6"
         >
-          Get Help from STORM
+          Apply for Mentorship
         </motion.h3>
 
         <AnimatePresence>
           {Object.keys(errors).length > 0 && (
             <motion.div
-              variants={errorVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <Alert variant="destructive" className="mb-6">
                 <AlertCircle className="h-4 w-4" />
@@ -207,89 +218,61 @@ export default function Home() {
         <motion.div variants={itemVariants}>
           <Select onValueChange={handleSelectChange}>
             <SelectTrigger className="w-full mb-4">
-              <SelectValue placeholder="What is the emergency" />
+              <SelectValue placeholder="What are you applying for" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="Homeless">Homeless</SelectItem>
-                <SelectItem value="Sleeping in Car">Sleeping in Car</SelectItem>
-                <SelectItem value="No Parent/Guardian">
-                  No Parent/Guardian
-                </SelectItem>
+                <SelectItem value="Homeless">Become a Mentor</SelectItem>
+                <SelectItem value="Sleeping in Car">Become a Mentee</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 gap-4 mb-4"
-        >
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              placeholder="First Name"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-            />
+        {[
+          {
+            grid: "grid-cols-2",
+            fields: [
+              { name: "firstName", placeholder: "First Name" },
+              { name: "lastName", placeholder: "Last Name" },
+            ],
+          },
+          {
+            grid: "grid-cols-2",
+            fields: [
+              { name: "email", placeholder: "Email", type: "email" },
+              { name: "phoneNumber", placeholder: "Phone Number", type: "tel" },
+            ],
+          },
+          {
+            grid: "grid-cols-2",
+            fields: [
+              { name: "age", placeholder: "Age", type: "number", max: 99 },
+              { name: "gender", placeholder: "Gender" },
+            ],
+          },
+        ].map((group, groupIndex) => (
+          <motion.div
+            key={groupIndex}
+            variants={itemVariants}
+            className={`grid ${group.grid} gap-4 mb-4`}
+          >
+            {group.fields.map((field, fieldIndex) => (
+              <motion.div
+                key={fieldIndex}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Input
+                  {...field}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                />
+              </motion.div>
+            ))}
           </motion.div>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              placeholder="Last Name"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-            />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 gap-4 mb-4"
-        >
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              type="tel"
-              placeholder="Phone Number"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-            />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 gap-4 mb-4"
-        >
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              placeholder="Age"
-              name="age"
-              type="number"
-              value={formData.age}
-              onChange={handleInputChange}
-              max={99}
-            />
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Input
-              placeholder="Gender"
-              name="gender"
-              value={formData.gender}
-              onChange={handleInputChange}
-            />
-          </motion.div>
-        </motion.div>
+        ))}
 
         <motion.div
           variants={itemVariants}
@@ -323,6 +306,38 @@ export default function Home() {
               />
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col gap-3 mb-3"
+        >
+          <h4>I am interested in</h4>
+          <motion.div
+            className="flex flex-row flex-wrap gap-2"
+            variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+          >
+            {options.map((option, index) => (
+              <motion.label
+                key={index}
+                className="flex items-center cursor-pointer bg-slate-50 p-2 rounded select-none"
+                onClick={() => handleOptionClick(option)}
+                variants={itemVariants}
+                whileHover="hover"
+                whileTap="tap"
+                custom={index}
+              >
+                <motion.span
+                  className={`h-6 w-6 mr-1 inline-block rounded border border-gray-300`}
+                  animate={
+                    selectedOptions.includes(option) ? "checked" : "unchecked"
+                  }
+                  variants={checkboxVariants}
+                />
+                <span>{option}</span>
+              </motion.label>
+            ))}
+          </motion.div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-4">
