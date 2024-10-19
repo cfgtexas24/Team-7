@@ -17,7 +17,7 @@ export default function Life() {
       title: "Budget Routine", 
       color: "from-green-400 to-green-600", 
       videoUrl: "https://www.youtube.com/watch?v=IIKr2915l2g", // Replace with actual video URL
-      gameUrl: "https://scratch.mit.edu/projects/1083696854/embed"
+      gameUrl: "https://scratch.mit.edu/projects/1083758756/embed"
     },
     { 
       icon: Briefcase, 
@@ -27,6 +27,24 @@ export default function Life() {
       gameUrl: "https://scratch.mit.edu/projects/1083717728/embed"
     },
   ]
+
+
+  //Fetching Resources Resources from backend
+  /* useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("http://52.91.214.247:8080/api/events/"); // Replace with your backend API URL
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setEvents(data.sort((a, b) => new Date(a.date) - new Date(b.date)));
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      }
+    };
+    fetchEvents();
+  }, []); */
 
   return (
     <div className="w-full min-h-screen flex justify-center bg-gradient-to-br from-gray-100 to-gray-300">
