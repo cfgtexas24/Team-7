@@ -76,7 +76,7 @@ export default function Events() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("http://52.91.214.247:8080/api/events/"); 
+        const response = await fetch("http://52.91.214.247:8080/api/events/");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -88,7 +88,6 @@ export default function Events() {
     };
     fetchEvents();
   }, []);
-
 
   const getTimeUntilEvent = (eventDate, startTime) => {
     if (!eventDate || !startTime) {
@@ -107,7 +106,7 @@ export default function Events() {
 
   return (
     <div className="bg-slate-50">
-      <div className="max-w-4xl mx-auto p-8">
+      <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-4xl font-bold mb-8 text-center">Upcoming Events</h1>
         <div className="h-[70vh] overflow-y-auto p-4">
           <div className="grid gap-6 md:grid-cols-2">
@@ -139,14 +138,6 @@ export default function Events() {
                     {event.date && event.startTime
                       ? getTimeUntilEvent(event.date, event.startTime)
                       : "Time not available"}
-                  </span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <UserIcon className="w-5 h-5 mr-2" />
-                  <span>
-                    {event.attendees
-                      ? `${event.attendees} attendees`
-                      : "Attendees not available"}
                   </span>
                 </div>
               </div>

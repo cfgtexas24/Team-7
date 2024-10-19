@@ -15,6 +15,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 
 export default function Home() {
+
   const options = [
     "Being paired with a volunteer mentor",
     "Housing",
@@ -117,6 +118,8 @@ export default function Home() {
       selectedOptions,
     };
 
+    const response = await fetch('/api/sms', {method: "GET"});
+    /*
     try {
       const response = await fetch("http://52.91.214.247:8080/api/user/", {
         method: "POST",
@@ -135,6 +138,7 @@ export default function Home() {
     } catch (error) {
       console.error("Error", error);
     }
+    */
   };
 
   return (
