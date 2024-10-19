@@ -50,29 +50,38 @@ public class User {
     public User(){
     }
 
-    public User(int id, String email, String firstName, String lastName, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(int id, String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, int phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
         this.isMentor = isMentor;
         this.isMentee = isMentee;
         this.isAdmin = isAdmin;
     }
 
-    public User(String email, String firstName, String lastName, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
-        this.email = email;
+    public User(String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, int phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
+        this.email = email;
+        this.age = age;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
         this.isMentor = isMentor;
         this.isMentee = isMentee;
         this.isAdmin = isAdmin;
     }
-
 
     public int getId(){
         return id;
@@ -94,7 +103,7 @@ public class User {
         return this.lastName;
     }
     
-    public String setLastName(String lastName){
+    public void setLastName(String lastName){
         this.lastName = lastName;
     }
 
@@ -114,20 +123,36 @@ public class User {
         this.age = age;
     }
 
-    public int getAddress(){
-        return this.;
+    public String getAddress(){
+        return address;
     }
 
-    public void setAddress(int age){
-        this.age = age;
+    public void setAddress(String address){
+        this.address = address;
     }
 
-    public String getLocation(){
-        return location;
+    public String getCity(){
+        return city;
     }
 
-    public void setLocation(String location){
-        this.location = location;
+    public void setCity(String city){
+        this.city = city;
+    }
+
+    public String getState(){
+        return state;
+    }
+
+    public void setState(String state){
+        this.state = state;
+    }
+
+    public int getZipCode(){
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode){
+        this.zipCode = zipCode;
     }
 
     public int getPhoneNumber(){
@@ -169,6 +194,5 @@ public class User {
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
-     
     
 }
