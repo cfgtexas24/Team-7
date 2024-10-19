@@ -15,7 +15,7 @@ export default function Events() {
         "startTime": "18:00:00",
         "endTime": "22:00:00"
     }
-  ]);
+  ]); 
 
   const sortedEvents = events.sort((a, b) => new Date(a.date) - new Date(b.date));
 
