@@ -5,17 +5,7 @@ import { useEffect, useState } from "react";
 import { formatDistanceToNowStrict, parseISO } from "date-fns";
 
 export default function Events() {
-  const [events, setEvents] = useState([
-    {
-        "id": 1,
-        "title": "Birthday Party",
-        "location": "123 Celebration Ave, Party City",
-        "date": "2024-12-25T00:00:00.000+00:00",
-        "description": null,
-        "startTime": "18:00:00",
-        "endTime": "22:00:00"
-    }
-  ]);
+  const [events, setEvents] = useState([]);
 
   const sortedEvents = events.sort((a, b) => new Date(a.date) - new Date(b.date));
 

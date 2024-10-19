@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -11,11 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
 
 export default function Home() {
-
   const options = [
     "Being paired with a volunteer mentor",
     "Housing",
@@ -41,8 +40,16 @@ export default function Home() {
     additionalInfo: "",
     gender: "",
     age: "",
-    //emergency: "",
+    reason: ""
   });
+
+  const handleSelectChange = (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      reason: value,
+    }));
+  };
+
   const [errors, setErrors] = useState({});
 
   const handleOptionClick = (option) => {
@@ -61,25 +68,15 @@ export default function Home() {
     }));
   };
 
-  const handleSelectChange = (value) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      emergency: value,
-    }));
-  };
-
   const validateFields = () => {
     const newErrors = {};
     const requiredFields = [
       "firstName",
       "lastName",
-      "email",
-      "phoneNumber",
       "state",
       "city",
       "gender",
       "age",
-      "emergency",
     ];
 
     requiredFields.forEach((field) => {
@@ -89,6 +86,10 @@ export default function Home() {
         } is required`;
       }
     });
+
+    if (selectedOptions.length === 0) {
+      newErrors.options = "At least one option must be selected";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -118,7 +119,7 @@ export default function Home() {
       selectedOptions,
     };
 
-    const response = await fetch('/api/sms', {method: "GET"});
+    const response = await fetch("/api/sms", { method: "GET" });
   };
 
   return (
@@ -128,7 +129,7 @@ export default function Home() {
         onSubmit={handleSubmit}
       >
         <h3 className="font-bold text-2xl text-gray-800 mb-6">
-          Get Help from STORM
+          Apply for Mentorship
         </h3>
 
         {Object.keys(errors).length > 0 && (
@@ -147,15 +148,12 @@ export default function Home() {
 
         <Select onValueChange={handleSelectChange}>
           <SelectTrigger className="w-full mb-4">
-            <SelectValue placeholder="What is the emergency" />
+            <SelectValue placeholder="What are you applying for" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="Homeless">Homeless</SelectItem>
-              <SelectItem value="Sleeping in Car">Sleeping in Car</SelectItem>
-              <SelectItem value="No Parent/Guardian">
-                No Parent/Guardian
-              </SelectItem>
+              <SelectItem value="Homeless">Become a Mentor</SelectItem>
+              <SelectItem value="Sleeping in Car">Become a Mentee</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -236,6 +234,28 @@ export default function Home() {
             value={formData.zipCode}
             onChange={handleInputChange}
           />
+        </div>
+
+        <div className="flex flex-col gap-3 mb-3">
+          <h4 className="">I am interested in</h4>
+          <div className="flex flex-row flex-wrap gap-2">
+            {options.map((option, index) => (
+              <label
+                key={index}
+                className="flex items-center cursor-pointer bg-slate-50 p-2 rounded select-none"
+                onClick={() => handleOptionClick(option)}
+              >
+                <span
+                  className={`h-6 w-6 mr-1 inline-block rounded ${
+                    selectedOptions.includes(option)
+                      ? "bg-slate-700"
+                      : "border border-gray-300"
+                  } transition-colors`}
+                ></span>
+                <span className="">{option}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
         <div className="mb-4">
