@@ -9,19 +9,22 @@ export default function Life() {
       icon: CreditCard, 
       title: "Debit vs Credit Cards", 
       color: "from-yellow-300 to-yellow-600", 
-      videoUrl: "https://www.youtube.com/watch?v=sm0FzHMInig" // Replace with actual video URL
+      videoUrl: "https://www.youtube.com/watch?v=sm0FzHMInig", // Replace with actual video URL
+      gameUrl: "https://scratch.mit.edu/projects/1083696854/embed"
     },
     { 
       icon: DollarSign, 
       title: "Budget Routine", 
       color: "from-green-400 to-green-600", 
-      videoUrl: "https://www.youtube.com/watch?v=IIKr2915l2g" // Replace with actual video URL
+      videoUrl: "https://www.youtube.com/watch?v=IIKr2915l2g", // Replace with actual video URL
+      gameUrl: "https://scratch.mit.edu/projects/1083696854/embed"
     },
     { 
       icon: Briefcase, 
       title: "Goal Setting", 
       color: "from-purple-400 to-purple-600", 
-      videoUrl: "https://www.youtube.com/watch?v=XpKvs-apvOs" // Replace with actual video URL
+      videoUrl: "https://www.youtube.com/watch?v=XpKvs-apvOs", // Replace with actual video URL
+      gameUrl: "https://scratch.mit.edu/projects/1083717728/embed"
     },
   ]
 
@@ -47,6 +50,14 @@ export default function Life() {
               className="mt-2 px-4 py-2 rounded-lg bg-violet-950 text-white hover:bg-violet-800 transition-colors duration-300"
             >
               Watch Video
+            </a>
+            <a 
+              href={lesson.gameUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="mt-2 px-4 py-2 rounded-lg bg-violet-950 text-white hover:bg-violet-800 transition-colors duration-300"
+            >
+              Play Game
             </a>
           </motion.div>
         ))}
