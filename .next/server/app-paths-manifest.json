@@ -1,1 +1,6 @@
-{}
+{
+  "/page": "app/page.js",
+  "/emergency/page": "app/emergency/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/non_emergency/page": "app/non_emergency/page.js"
+}
