@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -36,7 +37,6 @@ export default function Resources() {
         const resource = await response.json();
         console.log('Fetched resource:', resource);
 
-
         const transformedCategories = resource.map(item => ({
           title: item.category,
           description: item.category,
@@ -55,71 +55,108 @@ export default function Resources() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
-      <div className="relative h-64 bg-blue-600 mb-12">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gradient-to-b from-blue-100 to-white"
+    >
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="relative h-64 bg-blue-600 mb-12"
+      >
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="absolute inset-0 bg-[url('/svgs/bg-pattern.svg')] bg-no-repeat bg-center bg-cover z-0 opacity-80" />
-          <h1 className="text-4xl font-bold text-white text-center">
+          <motion.h1
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-4xl font-bold text-white text-center"
+          >
             Resources
-          </h1>
+          </motion.h1>
         </div>
-      </div>
+      </motion.div>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {categories.map((category, index) => (
-            <Card key={index} className="flex flex-col h-full">
-              <div className="h-48 w-full">
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  width={300}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle>{category.title}</CardTitle>
-                <CardDescription></CardDescription>
-              </CardHeader>
-              <CardFooter className="mt-auto">
-                <Dialog
-                  open={openCategory === index}
-                  onOpenChange={(isOpen) =>
-                    setOpenCategory(isOpen ? index : null)
-                  }
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+            >
+              <Card className="flex flex-col h-full">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                  className="h-48 w-full"
                 >
-                  <DialogTrigger asChild>
-                    <Button className="w-full">View Resources</Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl">
-                    <DialogHeader>
-                      <DialogTitle>{category.title}</DialogTitle>
-                      <DialogDescription>
-                        {category.description}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <ScrollArea className="h-[60vh] mt-4 pr-4">
-                      <ul className="space-y-2">
-                        {category.body.map((item) => (
-                          <li
-                            key={item.id}
-                            className="hover:bg-secondary rounded-md p-2 transition-colors"
-                          >
-                            <Link href={item.link} className="text-primary hover:underline">
-                              {item.value}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </ScrollArea>
-                  </DialogContent>
-                </Dialog>
-              </CardFooter>
-            </Card>
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <CardHeader className="flex-grow">
+                  <CardTitle>{category.title}</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardFooter className="mt-auto">
+                  <Dialog
+                    open={openCategory === index}
+                    onOpenChange={(isOpen) =>
+                      setOpenCategory(isOpen ? index : null)
+                    }
+                  >
+                    <DialogTrigger asChild>
+                      <Button className="w-full">View Resources</Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-3xl">
+                      <DialogHeader>
+                        <DialogTitle>{category.title}</DialogTitle>
+                        <DialogDescription>
+                          {category.description}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <ScrollArea className="h-[60vh] mt-4 pr-4">
+                        <motion.ul className="space-y-2">
+                          <AnimatePresence>
+                            {category.body.map((item, itemIndex) => (
+                              <motion.li
+                                key={item.id}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 20 }}
+                                transition={{ duration: 0.2, delay: itemIndex * 0.05 }}
+                                className="hover:bg-secondary rounded-md p-2 transition-colors"
+                              >
+                                <Link href={item.link} className="text-primary hover:underline">
+                                  {item.value}
+                                </Link>
+                              </motion.li>
+                            ))}
+                          </AnimatePresence>
+                        </motion.ul>
+                      </ScrollArea>
+                    </DialogContent>
+                  </Dialog>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </main>
-    </div>
+    </motion.div>
   );
 }
