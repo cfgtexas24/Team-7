@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isVisible = false // State variable to control opacity
-    @State private var showHomeView = false // State variable to navigate to HomeView
+    @State private var showFormView = false // State variable to navigate to HomeView
 
     var body: some View {
         ZStack {
-            if showHomeView {
+            if showFormView {
                 // Show HomeView after the splash screen
-                HomeView()
+                FormView()
                     .transition(.opacity) // Fade transition when switching views
             } else {
                 // Splash screen
@@ -33,13 +33,13 @@ struct ContentView: View {
                         // Delay for 2 seconds before transitioning to HomeView
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                             withAnimation {
-                                showHomeView = true
+                                showFormView = true
                             }
                         }
                     }
             }
         }
-        .animation(.easeOut, value: showHomeView) // Add animation when showHomeView changes
+        .animation(.easeOut, value: showFormView) // Add animation when showHomeView changes
     }
 }
 
