@@ -28,6 +28,24 @@ export default function Life() {
     },
   ]
 
+
+  //Fetching Resources Resources from backend
+  /* useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("http://52.91.214.247:8080/api/events/"); // Replace with your backend API URL
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setEvents(data.sort((a, b) => new Date(a.date) - new Date(b.date)));
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      }
+    };
+    fetchEvents();
+  }, []); */
+
   return (
     <div className="w-full min-h-screen flex justify-center bg-gradient-to-br from-gray-100 to-gray-300">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 p-12">

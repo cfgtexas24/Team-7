@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -63,8 +63,51 @@ const categories = [
   },
 ];
 
+
+/* private int id;
+
+    @Column(name = "category")
+    private String category;
+    
+    @Column(name = "link")
+    private String link;
+
+    @Column(name = "body")
+    private String body;
+ */
+
 export default function Resources() {
   const [openCategory, setOpenCategory] = useState(null);
+
+
+  const [resource, setResource] = useState(null);
+  const [parsedData, setParsedData] = useState([]);
+
+  useEffect(() => {
+    // Function to fetch the resource from the backend
+    const fetchResource = async () => {
+      try {
+        const response = await fetch('http://52.91.214.247:8080/api/resources/');
+
+        if(!response.ok){
+          throw new Error('Network response was not ok');
+        }
+        const resource = await response.json();
+        const dataArray = JSON.parse(resource.data); 
+        
+        dataArray.data = JSON.parse(dataArray.data)
+        
+        setResource(dataArray);
+        
+      } catch (error) {
+        console.error('Error fetching resource:', error);
+      }
+    };
+
+    fetchResource();
+  }, []);
+
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
