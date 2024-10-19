@@ -64,7 +64,7 @@ export default function Emergency() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-900 flex justify-center items-center">
+    <div className="flex h-[] bg-gray-900 justify-center items-center">
       <form
         className="max-w-[500px] bg-gray-800 border w-full flex flex-col p-3 rounded-md gap-4"
         onSubmit={handleSubmit}

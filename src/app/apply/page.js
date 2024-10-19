@@ -122,7 +122,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100 flex justify-center py-8">
+    <div className="flex h-[90vh] bg-gray-100 justify-center py-8">
       <form
         className="max-w-[600px] bg-white w-full flex flex-col p-8 rounded-lg shadow-xl h-fit"
         onSubmit={handleSubmit}

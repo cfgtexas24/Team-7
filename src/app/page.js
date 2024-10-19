@@ -1,19 +1,18 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, AlertTriangle } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center -mt-60 justify-center px-4 py-8 lg:py-12">
+    <div className="flex h-[90vh] bg-gray-50">
+      <div className="mx-auto flex flex-col lg:flex-row items-center justify-center px-4 py-4 lg:py-6">
         <div className="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
-            <div className="w-full lg:w-1/2 p-8 lg:p-12">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+            <div className="w-full lg:w-1/2 p-6 lg:p-8">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
                 Get Help Today
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 mb-6">
                 We provide emergency and non-emergency services to help you get back on your feet.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -44,5 +43,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
