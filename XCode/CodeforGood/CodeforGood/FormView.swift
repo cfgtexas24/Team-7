@@ -44,7 +44,12 @@ struct FormView: View {
 
     var body: some View {
         VStack {
-            Spacer()
+            // Company Logo
+            Image("Storm_Center_of_Hope_and_Service_Logo_NoBackground") // Replace "CompanyLogo" with the actual image name in your assets
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 300)
+            
             
             // Display the current question in the center
             Group {
@@ -213,27 +218,31 @@ struct FormView: View {
         }
     }
 
-    // Function to handle the form submission
-    private func handleSubmit() {
-        if isEmergency {
-            sendEmergencyEmail()
-        }
-        // Proceed to the HomeView
-        isFormCompleted = true
-    }
-
     // Function to send an emergency email automatically
-    private func sendEmergencyEmail() {
-        // Here you will need to integrate the JavaScript email sending code
-        // You need to replace this with actual email sending implementation
-        print("Sending emergency email to admin...")
-        print("Emergency Type: \(selectedEmergencyType)")
-        print("User Info: \(firstName) \(lastName), Email: \(email), Phone: \(phoneNumber)")
-        print("Location: \(address), \(city), \(state), \(zipCode)")
-        print("Additional Info: \(additionalInfo)")
+    private func handleSubmit() {
+            // Save user data to UserDefaults
+            UserDefaults.standard.setValue(firstName, forKey: "firstName")
+            UserDefaults.standard.setValue(lastName, forKey: "lastName")
+            UserDefaults.standard.setValue(email, forKey: "email")
+            UserDefaults.standard.setValue(phoneNumber, forKey: "phoneNumber")
+            UserDefaults.standard.setValue(age, forKey: "age")
+            UserDefaults.standard.setValue(gender, forKey: "gender")
+            UserDefaults.standard.setValue(address, forKey: "address")
+            UserDefaults.standard.setValue(city, forKey: "city")
+            UserDefaults.standard.setValue(state, forKey: "state")
+            UserDefaults.standard.setValue(zipCode, forKey: "zipCode")
+            UserDefaults.standard.setValue(additionalInfo, forKey: "additionalInfo")
+            
+            if isEmergency {
+                sendEmergencyEmail()
+            }
+            isFormCompleted = true
+        }
+
+        private func sendEmergencyEmail() {
+            print("Sending emergency email...")
+        }
     }
-}
-import SwiftUI
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {

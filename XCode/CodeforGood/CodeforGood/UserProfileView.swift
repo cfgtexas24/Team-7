@@ -14,9 +14,13 @@ struct UserProfileView: View {
     @State private var lastName: String = UserDefaults.standard.string(forKey: "lastName") ?? ""
     @State private var email: String = UserDefaults.standard.string(forKey: "email") ?? ""
     @State private var phoneNumber: String = UserDefaults.standard.string(forKey: "phoneNumber") ?? ""
+    @State private var age: String = UserDefaults.standard.string(forKey: "age") ?? ""
+    @State private var gender: String = UserDefaults.standard.string(forKey: "gender") ?? ""
     @State private var address: String = UserDefaults.standard.string(forKey: "address") ?? ""
+    @State private var city: String = UserDefaults.standard.string(forKey: "city") ?? ""
     @State private var state: String = UserDefaults.standard.string(forKey: "state") ?? ""
     @State private var zipCode: String = UserDefaults.standard.string(forKey: "zipCode") ?? ""
+    @State private var additionalInfo: String = UserDefaults.standard.string(forKey: "additionalInfo") ?? ""
     @State private var profileImage: UIImage? = UserProfileView.loadProfileImage()
     @State private var showingImagePicker = false
 
