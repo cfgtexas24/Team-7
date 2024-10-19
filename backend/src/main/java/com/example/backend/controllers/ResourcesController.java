@@ -2,6 +2,7 @@ package com.example.backend.controllers;
 
 import com.example.backend.entity.Resources;
 import com.example.backend.services.ResourcesService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/resources/")
 public class ResourcesController {
