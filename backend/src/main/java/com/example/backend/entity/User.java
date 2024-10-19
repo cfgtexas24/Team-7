@@ -20,14 +20,22 @@ public class User {
     @Id
     @GeneratedValue 
     private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "age")
     private int age;
-    @Column(name="location")
-    private String location;
+    @Column(name="address")
+    private String address;
+    @Column(name="city")
+    private String city;
+    @Column(name="state")
+    private String state;
+    @Column(name="zipCode")
+    private int zipCode;
     @Column(name = "phoneNumber")
     private int phoneNumber;
     @Column(name = "gender")
@@ -42,23 +50,23 @@ public class User {
     public User(){
     }
 
-    public User(int id, String email, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(int id, String email, String firstName, String lastName, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.gender = gender;
-        this.location = location;
-        this.name = name;
         this.phoneNumber = phoneNumber;
         this.isMentor = isMentor;
         this.isMentee = isMentee;
         this.isAdmin = isAdmin;
     }
 
-    public User(String email, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(String email, String firstName, String lastName, String gender, String location, String name, int phoneNumber, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.gender = gender;
-        this.location = location;
-        this.name = name;
         this.phoneNumber = phoneNumber;
         this.isMentor = isMentor;
         this.isMentee = isMentee;
@@ -74,12 +82,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName(){
-        return name;
+    public String getFirstName(){
+        return this.firstName;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public String setFirstName(String firstName){
+        return this.firstName = firstName;
+    }
+
+    public String getLastName(){
+        return this.lastName;
+    }
+    
+    public String setLastName(String lastName){
+        this.lastName = lastName;
     }
 
     public String getEmail(){
@@ -95,6 +111,14 @@ public class User {
     }
 
     public void setAge(int age){
+        this.age = age;
+    }
+
+    public int getAddress(){
+        return this.;
+    }
+
+    public void setAddress(int age){
         this.age = age;
     }
 
