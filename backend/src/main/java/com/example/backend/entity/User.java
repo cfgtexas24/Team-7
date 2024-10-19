@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users") 
 public class User {
  
     @Id
@@ -37,7 +37,7 @@ public class User {
     @Column(name="zipCode")
     private int zipCode;
     @Column(name = "phoneNumber")
-    private int phoneNumber;
+    private String phoneNumber;
     @Column(name = "gender")
     private String gender;
     @Column(name = "isMentor")
@@ -50,7 +50,7 @@ public class User {
     public User(){
     }
 
-    public User(int id, String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, int phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(int id, String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -67,7 +67,7 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-    public User(String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, int phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
+    public User(String firstName, String lastName, String email, int age, String address, String city, String state, int zipCode, String phoneNumber, String gender, boolean isMentor, boolean isMentee, boolean isAdmin){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -155,11 +155,11 @@ public class User {
         this.zipCode = zipCode;
     }
 
-    public int getPhoneNumber(){
+    public String getPhoneNumber(){
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber){
+    public void setPhoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
 

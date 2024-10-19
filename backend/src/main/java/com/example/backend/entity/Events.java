@@ -22,7 +22,7 @@ public class Events {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(name = "title")
     private String title;
@@ -42,11 +42,11 @@ public class Events {
     @Column(name = "endTime")
     private LocalTime endTime;
 
-    public Long getId(){
+    public int getId(){
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(int id){
         this.id = id;
     }
 
