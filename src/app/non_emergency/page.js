@@ -1,6 +1,6 @@
 "use client"
 
-import { Book, Calendar, Presentation } from "lucide-react"
+import { Book, Calendar, Presentation, Plus, Projector } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -9,7 +9,9 @@ export default function NonEmergency() {
     { icon: Book, title: "Resources", color: "from-blue-400 to-blue-600", link: "/resources" },
     { icon: Calendar, title: "Events", color: "from-green-400 to-green-600", link: "/events" },
     { icon: Presentation, title: "Life Lessons", color: "from-purple-400 to-purple-600", link: "/life" },
+    { icon: Plus, title: "Mentor Program", color: "from-orange-400 to-orange-600", link: "https://meet.google.com/tkk-xayx-pxb?ijlm=1729332460579&hs=187&adhoc=1" }
   ]
+  // TODO the mentor page shouldn't show up until you're signed up
 
   return (
     <div className="w-full min-h-screen flex justify-center bg-gradient-to-br from-gray-100 to-gray-300">
