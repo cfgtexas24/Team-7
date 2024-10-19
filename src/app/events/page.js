@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { formatDistanceToNowStrict } from "date-fns";
 
 export default function Events() {
-  const [events, setEvents] = useState(null);
+  const [events, setEvents] = useState([]);
 
   /* const Dummydata = [
     {
