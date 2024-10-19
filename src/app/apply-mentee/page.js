@@ -17,6 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter()
   const options = [
     "Being paired with a volunteer mentor",
     "Housing",
