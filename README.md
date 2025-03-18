@@ -14,3 +14,4 @@ We intially faces issues with getting our frontend connects to our backend on th
 
 ## Accomplishments that we're proud of
 We put a lot of effort into our project and are proud of our work. In particular, we are proud of our technical integration between frontend and backend actually being deployed and creating a useful yet fun resource to valuable information for individuals in need. 
+ <br /> <br /> The code ("Code") in this repository was created solely by the student teams during a coding competition hosted by JPMorgan Chase Bank, N.A. ("JPMC"). JPMC did not create or contribute to the development of the Code. This Code is provided AS IS and JPMC makes no warranty of any kind, express or implied, as to the Code, including but not limited to, merchantability, satisfactory quality, non-infringement, title or fitness for a particular purpose or use.
